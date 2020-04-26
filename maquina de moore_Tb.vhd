@@ -2,28 +2,28 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 ------------------------------------
-ENTITY detector_de_string_abc_tb IS
-END detector_de_string_abc_tb;
+ENTITY MMoore_tb IS
+END MMoore_tb;
 ----------------------------------
-ARCHITECTURE testbench OF detector_de_string_abc_tb IS 
+ARCHITECTURE testbench OF MMoore_tb IS 
 
 	SIGNAL clk	: std_logic; -- clock (relogio)
 	SIGNAL rst	: std_logic; -- reset
-	SIGNAL entrada	: IN td_logic_vector (1 DOWNTO 0);
+	SIGNAL entrada	: IN std_logic_vector (1 DOWNTO 0);
 	SIGNAL saida	: std_logic;
 	
-	COMPONENT detector_de_string_abc 
+	COMPONENT MMoore 
 	PORT (
 		clk	: IN std_logic; -- clock (relogio)
 		rst	: IN std_logic; -- reset
-		entrada	: IN td_logic_vector (1 DOWNTO 0);
+		entrada	: IN std_logic_vector (1 DOWNTO 0);
 		saida	: OUT std_logic
 	);
 	END COMPONENT;
 		
 BEGIN 
 	
-	i1: detector_de_string_abc
+	i1: MMoore
 	PORT MAP (
 		clk => clk,
 		rst => rst,
@@ -41,23 +41,23 @@ BEGIN
 				
 	reset: PROCESS
 	BEGIN
-		rst <= '1';
+		rst <= "01";
 		wait for 20 ns;
-		rst <= '0';
+		rst <= "00";
 		wait;  
 	END PROCESS;
 				
 	entrada1: PROCESS
 	BEGIN 
-		entrada <= '0';
+		entrada <= "00";
 		wait for 20 ns;
-		entrada <= '1';
+		entrada <= "01";
 		wait for 20 ns;
-		entrada <= '0';
+		entrada <= "00";
 		wait for 20 ns;
-		entrada <= '0';
+		entrada <= "00";
 		wait for 20 ns;
-		entrada <= '1';
+		entrada <= "01";
 		wait for 20 ns;
 	END PROCESS;
 END testbench;
