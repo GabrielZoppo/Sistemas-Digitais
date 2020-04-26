@@ -68,24 +68,24 @@ BEGIN
    CASE estado_atual IS
       WHEN ZERO =>
           CASE entrada IS
-             WHEN "00" 	=> saida <= '0';
-             WHEN "01" => saida <= '0';
-				 WHEN "10" 	=> saida <= '0';
-             WHEN "11" => saida <= '0';
+             WHEN "00" 	=> saida <= "00";
+             WHEN "01" => saida <= "00";
+				 WHEN "10" 	=> saida <= "00";
+             WHEN "11" => saida <= "00";
           END CASE;
       WHEN UM =>
           CASE entrada IS
-             WHEN "00" 	=> saida <= '0';
-             WHEN "01" => saida <= '0';
-				 WHEN "10" 	=> saida <= '0';
-             WHEN "11" => saida <= '0';
+             WHEN "00" 	=> saida <= "00";
+             WHEN "01" => saida <= "00";
+				 WHEN "10" 	=> saida <= "00";
+             WHEN "11" => saida <= "00";
 			END CASE;
 	  WHEN DOIS =>
 			CASE entrada IS
-			 WHEN "00" 	=> saida <= '0';
-             WHEN "01" => saida <= '0';
-				 WHEN "10" 	=> saida <= '1';
-             WHEN "11" => saida <= '0';
+			 WHEN "00" 	=> saida <= "00";
+             WHEN "01" => saida <= "00";
+				 WHEN "10" 	=> saida <= "01";
+             WHEN "11" => saida <= "00";
           END CASE;
     END CASE;
 END PROCESS;
