@@ -11,7 +11,7 @@ ENTITY MMoore IS
 END MMoore;
 -----------------------------------------------
 
-ARCHITECTURE rtl OF MMoore IS
+ARCHITECTURE arquitetura OF MMoore IS
 
 TYPE estado IS (zero, um, dois, tres);
 SIGNAL estado_atual, proximo_estado: estado;
@@ -39,14 +39,17 @@ BEGIN
 			WHEN um =>
 				saida <= '0';
 				IF (entrada ="01") THEN proximo_estado <= dois;
-				ELSIF (entrada = "00") THEN proximo_estado <= um;
+				ELSE IF (entrada = "00") THEN proximo_estado <= um;
 				ELSE proximo_estado <= zero;
 				END IF;
+				END IF;
+
 			WHEN dois =>
 				saida <= '0';
 				IF (entrada ="10") THEN proximo_estado <= tres;
-				ELSIF (entrada = "00") THEN proximo_estado <= um;
+				ELSE IF (entrada = "00") THEN proximo_estado <= um;
 				ELSE proximo_estado <= zero;
+				END IF;
 				END IF;
 			WHEN tres =>
 				saida <= '1';
@@ -55,5 +58,5 @@ BEGIN
 				END IF;
 		END CASE;
 	END PROCESS;
-END rtl;
+END arquitetura;
 --------------------------------------------
